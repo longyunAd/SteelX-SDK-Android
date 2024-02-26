@@ -1,0 +1,82 @@
+apply plugin: 'com.android.application'
+ext {
+    sdkVersion = "7.7.0"
+}
+
+android {
+    compileSdkVersion 33
+    buildToolsVersion '30.0.0'
+    defaultConfig {
+        applicationId "com.knifedashi.knifehero"
+        minSdkVersion 19
+        targetSdkVersion 32
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled = true
+
+        ndk {
+            // armeabi：万金油架构平台（占用率：0%）
+            // armeabi-v7a：曾经主流的架构平台（占用率：10%）
+            // arm64-v8a：目前主流架构平台（占用率：95%）
+            abiFilters 'armeabi-v7a', 'arm64-v8a'
+        }
+    }
+    signingConfigs {
+        config {
+            keyAlias 'steellord'
+            keyPassword 'ly@2023'
+            storeFile file('../steellord.jks')
+            storePassword 'ly@2023'
+        }
+    }
+    buildTypes {
+        debug {
+            minifyEnabled false
+            signingConfig signingConfigs.config
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.config
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    repositories {
+        flatDir {
+            dirs 'libs'
+        }
+    }
+    android {
+        ndkVersion '22.0.7026061'
+    }
+}
+
+//Include IronSource maven repositories
+repositories {
+    maven {
+        //IronSource
+        url "https://android-sdk.is.com/"
+    }
+}
+
+
+dependencies {
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'com.google.android.gms:play-services-ads-identifier:18.0.1'
+    implementation 'androidx.cardview:cardview:1.0.0'
+    //Add IronSource Mediation SDK dependency.
+    implementation "com.ironsource.sdk:mediationsdk:$sdkVersion"
+    // ironSource Ad Quality SDK
+    //Add AdNetworks adapters dependencies - every adapter contains also the ad network SDK.
+    //Make sure you also configure the AdNetworks in your dashboard.
+    //For more information: http://developers.ironsrc.com/ironsource-mobile/android/mediation-networks-android/
+
+    implementation 'androidx.recyclerview:recyclerview:1.2.1'
+
+    implementation 'com.gitee.longyunAd:steelx:1.0.0'
+    implementation 'com.github.longyunAd.steelx-adapter:is-adapter:1.0.0'
+}
