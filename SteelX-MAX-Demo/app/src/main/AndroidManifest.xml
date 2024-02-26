@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.applovin.enterprise.apps.demoapp">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:name=".GlobalApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+<!--        <meta-data android:name="applovin.sdk.key"-->
+<!--            android:value="o1yZ1hEQwmZnVCb1HTNzEOhi1rN3yCZDvPQ9pbI3m9Tmbbpk0IK0mlx8ciBXhivLwAeL3kx65ohxB5KsRsU4o0"/>-->
+        <meta-data android:name="applovin.sdk.key"
+            android:value="KRgtlbcthvurf5FBG7Rm14dpkJJoUr2UlZ2EMuIUaFJ7GEhEnNU0nlyKVHMwlsRuJiPVhBLm5R_vB5p0lK9Ayc"/>
+
+        <activity
+            android:exported="true"
+            android:name="com.applovin.enterprise.apps.demoapp.SplashActivity"
+            android:label="@string/app_name"
+            android:launchMode="singleTask"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.applovin.enterprise.apps.demoapp.MainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.applovin.enterprise.apps.demoapp.ads.max.InterstitialAdActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:parentActivityName="com.applovin.enterprise.apps.demoapp.MainActivity" />
+        <activity
+            android:name="com.applovin.enterprise.apps.demoapp.ads.max.AppOpenAdActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:parentActivityName="com.applovin.enterprise.apps.demoapp.MainActivity" />
+        <activity
+            android:name="com.applovin.enterprise.apps.demoapp.ads.max.RewardedAdActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:parentActivityName="com.applovin.enterprise.apps.demoapp.MainActivity" />
+        <activity
+            android:name="com.applovin.enterprise.apps.demoapp.ads.max.banner.BannerAdActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:label="Banners"
+            android:parentActivityName="com.applovin.enterprise.apps.demoapp.MainActivity" />
+        <activity
+            android:name="com.applovin.enterprise.apps.demoapp.ads.max.banner.ProgrammaticBannerAdActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:parentActivityName="com.applovin.enterprise.apps.demoapp.MainActivity" />
+        <activity
+            android:name="com.applovin.enterprise.apps.demoapp.ads.max.banner.LayoutEditorBannerAdActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:parentActivityName="com.applovin.enterprise.apps.demoapp.MainActivity" />
+        <activity
+            android:name="com.applovin.enterprise.apps.demoapp.ads.max.mrecs.MrecAdActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:label="MRECs"
+            android:parentActivityName="com.applovin.enterprise.apps.demoapp.MainActivity" />
+        <activity
+            android:name="com.applovin.enterprise.apps.demoapp.ads.max.mrecs.LayoutEditorMrecAdActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:parentActivityName="com.applovin.enterprise.apps.demoapp.MainActivity" />
+        <activity
+            android:name="com.applovin.enterprise.apps.demoapp.ads.max.mrecs.ProgrammaticMrecAdActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:parentActivityName="com.applovin.enterprise.apps.demoapp.MainActivity" />
+        <activity
+            android:name="com.applovin.enterprise.apps.demoapp.ads.max.mrecs.RecyclerViewMrecAdActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:parentActivityName="com.applovin.enterprise.apps.demoapp.MainActivity" />
+        <activity
+            android:name="com.applovin.enterprise.apps.demoapp.ads.max.nativead.NativeAdActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:label="Natives"
+            android:parentActivityName="com.applovin.enterprise.apps.demoapp.MainActivity" />
+        <activity
+            android:name="com.applovin.enterprise.apps.demoapp.ads.max.nativead.TemplateNativeAdActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:parentActivityName="com.applovin.enterprise.apps.demoapp.MainActivity" />
+        <activity
+            android:name="com.applovin.enterprise.apps.demoapp.ads.max.nativead.ManualNativeAdActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:parentActivityName="com.applovin.enterprise.apps.demoapp.MainActivity" />
+        <activity
+            android:name="com.applovin.enterprise.apps.demoapp.ads.max.nativead.ManualNativeLateBindingAdActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:parentActivityName="com.applovin.enterprise.apps.demoapp.MainActivity" />
+        <activity
+            android:name="com.applovin.enterprise.apps.demoapp.ads.max.nativead.RecyclerViewNativeAdActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:parentActivityName="com.applovin.enterprise.apps.demoapp.MainActivity" />
+
+        <activity
+            android:name="com.longyun.steelx.ui.AdActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="false"
+            android:screenOrientation="sensor"
+            android:theme="@android:style/Theme.Translucent"/>
+    </application>
+</manifest>
