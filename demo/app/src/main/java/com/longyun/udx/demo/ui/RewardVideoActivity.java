@@ -1,4 +1,4 @@
-package com.longyun.steelx.demo.ui;
+package com.longyun.udx.demo.ui;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -9,12 +9,12 @@ import android.widget.Button;
 import androidx.annotation.Nullable;
 
 import com.blankj.utilcode.util.ToastUtils;
-import com.longyun.steelx.demo.R;
-import com.longyun.steelx.sdk.SXAd;
-import com.longyun.steelx.sdk.SXError;
-import com.longyun.steelx.sdk.reward.SXReward;
-import com.longyun.steelx.sdk.reward.SXRewardedAd;
-import com.longyun.steelx.sdk.reward.SXRewardedAdListener;
+import com.longyun.udx.demo.R;
+import com.longyun.udx.sdk.SXAd;
+import com.longyun.udx.sdk.SXError;
+import com.longyun.udx.sdk.reward.SXReward;
+import com.longyun.udx.sdk.reward.SXRewardedAd;
+import com.longyun.udx.sdk.reward.SXRewardedAdListener;
 
 public class RewardVideoActivity extends Activity {
     public static final String TAG = "RewardVideoActivity";

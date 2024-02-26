@@ -1,12 +1,11 @@
-package com.longyun.steelx.demo.ui;
+package com.longyun.udx.demo.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.WindowManager;
 
-import com.longyun.steelx.demo.R;
+import com.longyun.udx.demo.R;
 
 public class MainActivity extends AppCompatActivity {
 

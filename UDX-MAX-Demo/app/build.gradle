@@ -75,5 +75,5 @@ dependencies {
 
     implementation "androidx.browser:browser:1.2.0"
     implementation 'com.gitee.longyunAd:steelx:1.0.0'
-    implementation 'com.github.longyunAd.steelx-adapter:max-adapter:1.0.0'
+    implementation 'com.github.longyunAd.udx-adapter:max-adapter:1.0.0'
 }

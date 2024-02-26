@@ -1,4 +1,4 @@
-package com.longyun.steelx.demo
+package com.longyun.udx.demo
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

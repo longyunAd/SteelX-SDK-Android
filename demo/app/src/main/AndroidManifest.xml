@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.longyun.steelx.demo">
+    package="com.longyun.udx.demo">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
-        android:name=".BaseApp"
+        android:name="com.longyun.udx.demo.BaseApp"
         android:allowBackup="true"
         android:networkSecurityConfig="@xml/network_security_config"
         android:icon="@mipmap/ic_launcher"
@@ -15,7 +15,7 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name="com.longyun.steelx.demo.ui.MainActivity"
+            android:name="com.longyun.udx.demo.ui.MainActivity"
             android:exported="true"
             android:label="@string/app_name">
             <intent-filter>
@@ -26,12 +26,12 @@
         </activity>
 
         <activity
-            android:name=".ui.RewardVideoActivity"
+            android:name="com.longyun.udx.demo.ui.RewardVideoActivity"
             android:configChanges="keyboard|orientation|screenSize"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".ui.InterstitialActivity"
+            android:name="com.longyun.udx.demo.ui.InterstitialActivity"
             android:configChanges="keyboard|orientation|screenSize"
             android:screenOrientation="portrait" />
     </application>

@@ -1,4 +1,4 @@
-package com.longyun.steelx.demo
+package com.longyun.udx.demo
 
 import org.junit.Test
 

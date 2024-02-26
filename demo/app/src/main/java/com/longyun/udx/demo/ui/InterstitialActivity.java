@@ -1,4 +1,4 @@
-package com.longyun.steelx.demo.ui;
+package com.longyun.udx.demo.ui;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -8,18 +8,18 @@ import android.widget.Button;
 
 import androidx.annotation.Nullable;
 
-import com.longyun.steelx.demo.R;
+import com.longyun.udx.demo.R;
 import com.blankj.utilcode.util.ToastUtils;
-import com.longyun.steelx.sdk.SXAd;
-import com.longyun.steelx.sdk.SXError;
-import com.longyun.steelx.sdk.inters.SXInterstitialAd;
-import com.longyun.steelx.sdk.inters.SXInterstitialAdListener;
+import com.longyun.udx.sdk.UDXAd;
+import com.longyun.udx.sdk.UDXError;
+import com.longyun.udx.sdk.inters.UDXInterstitialAd;
+import com.longyun.udx.sdk.inters.UDXInterstitialAdListener;
 
 public class InterstitialActivity extends Activity {
     public static final String TAG = "RewardVideoActivity";
     private Button mLoadAd;
     private Button mShowAd;
-    private SXInterstitialAd mInterstitialAd;
+    private UDXInterstitialAd mInterstitialAd;
 
     @SuppressWarnings("RedundantCast")
     @Override
@@ -58,41 +58,41 @@ public class InterstitialActivity extends Activity {
     }
 
     private void loadAd() {
-        new SXInterstitialAd().loadAd("S7S0BU", null, new SXInterstitialAdListener() {
+        new UDXInterstitialAd().loadAd("S7S0BU", null, new UDXInterstitialAdListener() {
 
             @Override
-            public void onAdLoaded(SXAd ad) {
+            public void onAdLoaded(UDXAd ad) {
                 Log.i(TAG, "onAdLoaded: ");
                 ToastUtils.showShort("interstitialAd onAdLoaded");
-                mInterstitialAd = (SXInterstitialAd) ad;
+                mInterstitialAd = (UDXInterstitialAd) ad;
             }
 
             @Override
-            public void onAdFailedToLoad(String adUnitId, SXError error) {
+            public void onAdFailedToLoad(String adUnitId, UDXError error) {
                 Log.i(TAG, "onAdFailedToLoad code:"+error.getCode()+"msg:"+error.getMessage());
                 ToastUtils.showShort("interstitialAd onAdFailedToLoad code:"+error.getCode()+"msg:"+error.getMessage());
             }
 
             @Override
-            public void onAdDisplayFailed(SXAd ad, SXError error) {
+            public void onAdDisplayFailed(UDXAd ad, UDXError error) {
                 Log.i(TAG, "onAdDisplayFailed code:"+error.getCode()+"msg:"+error.getMessage());
                 ToastUtils.showShort("interstitialAd onAdDisplayFailed code:"+error.getCode()+"msg:"+error.getMessage());
             }
 
             @Override
-            public void onAdDisplayed(SXAd ad) {
+            public void onAdDisplayed(UDXAd ad) {
                 Log.i(TAG, "onAdDisplayed");
                 ToastUtils.showShort("interstitialAd onAdDisplayed");
             }
 
             @Override
-            public void onAdClicked(SXAd ad) {
+            public void onAdClicked(UDXAd ad) {
                 Log.i(TAG, "onAdClicked");
                 ToastUtils.showShort("interstitialAd onAdClicked");
             }
 
             @Override
-            public void onAdHidden(SXAd ad) {
+            public void onAdHidden(UDXAd ad) {
                 Log.i(TAG, "onAdHidden");
                 ToastUtils.showShort("interstitialAd onAdHidden");
             }

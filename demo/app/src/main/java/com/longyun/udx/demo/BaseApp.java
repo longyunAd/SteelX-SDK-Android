@@ -1,10 +1,10 @@
-package com.longyun.steelx.demo;
+package com.longyun.udx.demo;
 
 import android.app.Application;
 import android.util.Log;
 
-import com.longyun.steelx.sdk.SXConfig;
-import com.longyun.steelx.sdk.SXSdk;
+import com.longyun.udx.sdk.SXConfig;
+import com.longyun.udx.sdk.SXSdk;
 
 public class BaseApp
         extends Application
