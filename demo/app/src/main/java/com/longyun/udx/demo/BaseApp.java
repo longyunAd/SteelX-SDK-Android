@@ -3,8 +3,8 @@ package com.longyun.udx.demo;
 import android.app.Application;
 import android.util.Log;
 
-import com.longyun.udx.sdk.SXConfig;
-import com.longyun.udx.sdk.SXSdk;
+import com.longyun.udx.sdk.UDXConfig;
+import com.longyun.udx.sdk.UDXSdk;
 
 public class BaseApp
         extends Application
@@ -14,11 +14,11 @@ public class BaseApp
     {
         super.onCreate();
 
-        SXConfig config = new SXConfig.Builder()
+        UDXConfig config = new UDXConfig.Builder()
                 .setAppId("VJ0DPE")
                 .build();
 
-        SXSdk.init(this, config, new SXSdk.SLInitCallback() {
+        UDXSdk.init(this, config, new UDXSdk.UDXInitCallback() {
             @Override
             public void success() {
                 Log.i("BaseApp", "init success");

@@ -13,12 +13,19 @@ android {
         multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
+
+        ndk {
+            // armeabi：万金油架构平台（占用率：0%）
+            // armeabi-v7a：曾经主流的架构平台（占用率：10%）
+            // arm64-v8a：目前主流架构平台（占用率：95%）
+            abiFilters 'armeabi-v7a', 'arm64-v8a'
+        }
     }
     signingConfigs {
         config {
             keyAlias 'steellord'
             keyPassword 'ly@2023'
-            storeFile file('../steelx.jks')
+            storeFile file('../udx.jks')
             storePassword 'ly@2023'
         }
     }

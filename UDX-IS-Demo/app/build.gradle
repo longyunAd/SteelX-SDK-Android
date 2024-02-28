@@ -50,9 +50,6 @@ android {
             dirs 'libs'
         }
     }
-    android {
-        ndkVersion '22.0.7026061'
-    }
 }
 
 //Include IronSource maven repositories

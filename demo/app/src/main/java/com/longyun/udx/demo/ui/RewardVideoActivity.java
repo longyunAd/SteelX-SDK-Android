@@ -10,17 +10,17 @@ import androidx.annotation.Nullable;
 
 import com.blankj.utilcode.util.ToastUtils;
 import com.longyun.udx.demo.R;
-import com.longyun.udx.sdk.SXAd;
-import com.longyun.udx.sdk.SXError;
-import com.longyun.udx.sdk.reward.SXReward;
-import com.longyun.udx.sdk.reward.SXRewardedAd;
-import com.longyun.udx.sdk.reward.SXRewardedAdListener;
+import com.longyun.udx.sdk.UDXAd;
+import com.longyun.udx.sdk.UDXError;
+import com.longyun.udx.sdk.reward.UDXReward;
+import com.longyun.udx.sdk.reward.UDXRewardedAd;
+import com.longyun.udx.sdk.reward.UDXRewardedAdListener;
 
 public class RewardVideoActivity extends Activity {
     public static final String TAG = "RewardVideoActivity";
     private Button mLoadAd;
     private Button mShowAd;
-    private SXRewardedAd mRewardedAd;
+    private UDXRewardedAd mRewardedAd;
 
     @SuppressWarnings("RedundantCast")
     @Override
@@ -59,58 +59,58 @@ public class RewardVideoActivity extends Activity {
     }
 
     private void loadAd() {
-        new SXRewardedAd().loadAd("S7S0BU", null, new SXRewardedAdListener() {
+        new UDXRewardedAd().loadAd("S7E0YS", null, new UDXRewardedAdListener() {
             @Override
-            public void onRewardedVideoStarted(SXAd ad) {
+            public void onRewardedVideoStarted(UDXAd ad) {
                 Log.i(TAG, "onRewardedVideoStarted");
                 ToastUtils.showShort("rewardVideoAd onRewardedVideoStarted");
             }
 
             @Override
-            public void onRewardedVideoCompleted(SXAd ad) {
+            public void onRewardedVideoCompleted(UDXAd ad) {
                 Log.i(TAG, "onRewardedVideoCompleted");
                 ToastUtils.showShort("rewardVideoAd onRewardedVideoCompleted");
             }
 
             @Override
-            public void onUserRewarded(SXAd ad, SXReward reward) {
+            public void onUserRewarded(UDXAd ad, UDXReward reward) {
                 Log.i(TAG, "onUserRewarded" + reward.isReward());
                 ToastUtils.showShort("rewardVideoAd onUserRewarded");
             }
 
             @Override
-            public void onAdLoaded(SXAd ad) {
+            public void onAdLoaded(UDXAd ad) {
                 Log.i(TAG,"onAdLoaded");
                 ToastUtils.showShort("rewardVideoAd onAdLoaded");
-                mRewardedAd = (SXRewardedAd) ad;
+                mRewardedAd = (UDXRewardedAd) ad;
             }
 
             @Override
-            public void onAdFailedToLoad(String adUnitId, SXError error) {
+            public void onAdFailedToLoad(String adUnitId, UDXError error) {
                 Log.i(TAG,"onAdFailedToLoad code:"+error.getCode()+" msg:"+error.getMessage());
                 ToastUtils.showShort("rewardVideoAd onAdFailedToLoad code:"+error.getCode()+" msg:"+error.getMessage());
             }
 
             @Override
-            public void onAdDisplayFailed(SXAd ad, SXError error) {
+            public void onAdDisplayFailed(UDXAd ad, UDXError error) {
                 Log.i(TAG,"onAdDisplayFailed code:"+error.getCode()+" msg:"+error.getMessage());
                 ToastUtils.showShort("rewardVideoAd onAdDisplayFailed code:"+error.getCode()+" msg:"+error.getMessage());
             }
 
             @Override
-            public void onAdDisplayed(SXAd ad) {
+            public void onAdDisplayed(UDXAd ad) {
                 Log.i(TAG,"onAdDisplayed");
                 ToastUtils.showShort("rewardVideoAd onAdDisplayed");
             }
 
             @Override
-            public void onAdClicked(SXAd ad) {
+            public void onAdClicked(UDXAd ad) {
                 Log.i(TAG,"onAdClicked");
                 ToastUtils.showShort("rewardVideoAd onAdClicked");
             }
 
             @Override
-            public void onAdHidden(SXAd ad) {
+            public void onAdHidden(UDXAd ad) {
                 Log.i(TAG,"onAdHidden");
                 ToastUtils.showShort("rewardVideoAd onAdHidden");
             }

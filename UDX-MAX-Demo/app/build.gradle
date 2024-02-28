@@ -19,7 +19,7 @@ android {
         config {
             keyAlias 'steellord'
             keyPassword 'ly@2023'
-            storeFile file('../steellord.jks')
+            storeFile file('../udx.jks')
             storePassword 'ly@2023'
         }
     }
