@@ -10,10 +10,8 @@ import androidx.annotation.Nullable;
 
 import com.longyun.udx.demo.R;
 import com.blankj.utilcode.util.ToastUtils;
-import com.longyun.udx.sdk.UDXAd;
-import com.longyun.udx.sdk.UDXError;
-import com.longyun.udx.sdk.inters.UDXInterstitialAd;
-import com.longyun.udx.sdk.inters.UDXInterstitialAdListener;
+import com.longyun.udx.sdk.AdError;
+import com.longyun.udx.sdk.UDXInterstitialAd;
 
 public class InterstitialActivity extends Activity {
     public static final String TAG = "RewardVideoActivity";
@@ -48,7 +46,7 @@ public class InterstitialActivity extends Activity {
             @Override
             public void onClick(View v) {
                 if (mInterstitialAd != null) {
-                    mInterstitialAd.show(InterstitialActivity.this);
+                    mInterstitialAd.showAd();
                     mInterstitialAd = null;
                 } else {
                     ToastUtils.showShort("Please load the ad first !");
@@ -58,44 +56,44 @@ public class InterstitialActivity extends Activity {
     }
 
     private void loadAd() {
-        new UDXInterstitialAd().loadAd("S770WP", null, new UDXInterstitialAdListener() {
+        mInterstitialAd = new UDXInterstitialAd(this, "S7E0YS");
+        mInterstitialAd.setListener(new UDXInterstitialAd.Listener() {
+            @Override
+            public void onAdHidden() {
+                Log.i(TAG, "onAdHidden");
+                ToastUtils.showShort("interstitialAd onAdHidden");
+            }
 
             @Override
-            public void onAdLoaded(UDXAd ad) {
+            public void onAdLoaded() {
                 Log.i(TAG, "onAdLoaded: ");
                 ToastUtils.showShort("interstitialAd onAdLoaded");
-                mInterstitialAd = (UDXInterstitialAd) ad;
             }
 
             @Override
-            public void onAdFailedToLoad(String adUnitId, UDXError error) {
-                Log.i(TAG, "onAdFailedToLoad code:"+error.getCode()+"msg:"+error.getMessage());
-                ToastUtils.showShort("interstitialAd onAdFailedToLoad code:"+error.getCode()+"msg:"+error.getMessage());
+            public void onAdLoadFailed() {
+                Log.i(TAG, "onAdFailedToLoad:");
+                ToastUtils.showShort("interstitialAd onAdFailedToLoad");
             }
 
             @Override
-            public void onAdDisplayFailed(UDXAd ad, UDXError error) {
-                Log.i(TAG, "onAdDisplayFailed code:"+error.getCode()+"msg:"+error.getMessage());
-                ToastUtils.showShort("interstitialAd onAdDisplayFailed code:"+error.getCode()+"msg:"+error.getMessage());
-            }
-
-            @Override
-            public void onAdDisplayed(UDXAd ad) {
+            public void onAdDisplayed() {
                 Log.i(TAG, "onAdDisplayed");
                 ToastUtils.showShort("interstitialAd onAdDisplayed");
             }
 
             @Override
-            public void onAdClicked(UDXAd ad) {
+            public void onAdClicked() {
                 Log.i(TAG, "onAdClicked");
                 ToastUtils.showShort("interstitialAd onAdClicked");
             }
 
             @Override
-            public void onAdHidden(UDXAd ad) {
-                Log.i(TAG, "onAdHidden");
-                ToastUtils.showShort("interstitialAd onAdHidden");
+            public void onAdError(AdError adError) {
+                Log.i(TAG, "onAdError");
+                ToastUtils.showShort("interstitialAd onAdError");
             }
         });
+        mInterstitialAd.loadAd();
     }
 }

@@ -10,11 +10,8 @@ import androidx.annotation.Nullable;
 
 import com.blankj.utilcode.util.ToastUtils;
 import com.longyun.udx.demo.R;
-import com.longyun.udx.sdk.UDXAd;
-import com.longyun.udx.sdk.UDXError;
-import com.longyun.udx.sdk.reward.UDXReward;
-import com.longyun.udx.sdk.reward.UDXRewardedAd;
-import com.longyun.udx.sdk.reward.UDXRewardedAdListener;
+import com.longyun.udx.sdk.AdError;
+import com.longyun.udx.sdk.UDXRewardedAd;
 
 public class RewardVideoActivity extends Activity {
     public static final String TAG = "RewardVideoActivity";
@@ -49,7 +46,7 @@ public class RewardVideoActivity extends Activity {
             @Override
             public void onClick(View v) {
                 if (mRewardedAd != null) {
-                    mRewardedAd.show(RewardVideoActivity.this);
+                    mRewardedAd.showAd();
                     mRewardedAd = null;
                 } else {
                     ToastUtils.showShort("Please load the ad first !");
@@ -59,61 +56,51 @@ public class RewardVideoActivity extends Activity {
     }
 
     private void loadAd() {
-        new UDXRewardedAd().loadAd("S7E0YS", null, new UDXRewardedAdListener() {
+        mRewardedAd = new UDXRewardedAd(this, "XV0CM5");
+        mRewardedAd.setListener(new UDXRewardedAd.Listener() {
+
             @Override
-            public void onRewardedVideoStarted(UDXAd ad) {
-                Log.i(TAG, "onRewardedVideoStarted");
-                ToastUtils.showShort("rewardVideoAd onRewardedVideoStarted");
+            public void onAdHidden() {
+                Log.i(TAG, "onAdHidden: ");
+                ToastUtils.showShort("RewardedAd onAdHidden");
             }
 
             @Override
-            public void onRewardedVideoCompleted(UDXAd ad) {
-                Log.i(TAG, "onRewardedVideoCompleted");
-                ToastUtils.showShort("rewardVideoAd onRewardedVideoCompleted");
+            public void onUserRewarded() {
+                Log.i(TAG, "onUserRewarded: ");
+                ToastUtils.showShort("RewardedAd onUserRewarded");
             }
 
             @Override
-            public void onUserRewarded(UDXAd ad, UDXReward reward) {
-                Log.i(TAG, "onUserRewarded" + reward.isReward());
-                ToastUtils.showShort("rewardVideoAd onUserRewarded");
+            public void onAdLoaded() {
+                Log.i(TAG, "onAdLoaded: ");
+                ToastUtils.showShort("RewardedAd onAdLoaded");
             }
 
             @Override
-            public void onAdLoaded(UDXAd ad) {
-                Log.i(TAG,"onAdLoaded");
-                ToastUtils.showShort("rewardVideoAd onAdLoaded");
-                mRewardedAd = (UDXRewardedAd) ad;
+            public void onAdLoadFailed() {
+                Log.i(TAG, "onAdLoadFailed: ");
+                ToastUtils.showShort("RewardedAd onAdLoadFailed");
             }
 
             @Override
-            public void onAdFailedToLoad(String adUnitId, UDXError error) {
-                Log.i(TAG,"onAdFailedToLoad code:"+error.getCode()+" msg:"+error.getMessage());
-                ToastUtils.showShort("rewardVideoAd onAdFailedToLoad code:"+error.getCode()+" msg:"+error.getMessage());
+            public void onAdDisplayed() {
+                Log.i(TAG, "onAdDisplayed: ");
+                ToastUtils.showShort("RewardedAd onAdDisplayed");
             }
 
             @Override
-            public void onAdDisplayFailed(UDXAd ad, UDXError error) {
-                Log.i(TAG,"onAdDisplayFailed code:"+error.getCode()+" msg:"+error.getMessage());
-                ToastUtils.showShort("rewardVideoAd onAdDisplayFailed code:"+error.getCode()+" msg:"+error.getMessage());
+            public void onAdClicked() {
+                Log.i(TAG, "onAdClicked: ");
+                ToastUtils.showShort("RewardedAd onAdClicked");
             }
 
             @Override
-            public void onAdDisplayed(UDXAd ad) {
-                Log.i(TAG,"onAdDisplayed");
-                ToastUtils.showShort("rewardVideoAd onAdDisplayed");
-            }
-
-            @Override
-            public void onAdClicked(UDXAd ad) {
-                Log.i(TAG,"onAdClicked");
-                ToastUtils.showShort("rewardVideoAd onAdClicked");
-            }
-
-            @Override
-            public void onAdHidden(UDXAd ad) {
-                Log.i(TAG,"onAdHidden");
-                ToastUtils.showShort("rewardVideoAd onAdHidden");
+            public void onAdError(AdError adError) {
+                Log.i(TAG, "onAdError: ");
+                ToastUtils.showShort("RewardedAd onAdError");
             }
         });
+        mRewardedAd.loadAd();
     }
 }
