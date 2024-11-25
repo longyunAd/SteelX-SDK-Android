@@ -56,7 +56,7 @@ public class InterstitialActivity extends Activity {
     }
 
     private void loadAd() {
-        mInterstitialAd = new UDXInterstitialAd(this, "S7E0YS");
+        mInterstitialAd = new UDXInterstitialAd(this, "S780NI");
         mInterstitialAd.setListener(new UDXInterstitialAd.Listener() {
             @Override
             public void onAdHidden() {

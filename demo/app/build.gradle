@@ -4,8 +4,8 @@ android {
     compileSdkVersion 31
 
     defaultConfig {
-        applicationId "com.longyun.steelx"
-//        applicationId "anzhuo.com"
+//        applicationId "com.longyun.steelx"
+        applicationId "anzhuo.com"
         minSdkVersion 21
         targetSdkVersion 34
         versionCode 1
@@ -62,5 +62,7 @@ dependencies {
     implementation 'com.blankj:utilcodex:1.31.1'
 
     implementation 'com.google.android.gms:play-services-ads-identifier:18.0.1'
-    implementation 'com.gitee.longyunAd:udx:1.1.0.1'
+    implementation 'com.gitee.longyunAd:udx:1.1.0.3'
+
+//    implementation (name: 'core-release', ext: 'aar')
 }

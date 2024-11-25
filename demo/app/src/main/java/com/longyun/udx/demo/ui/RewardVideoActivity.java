@@ -56,7 +56,8 @@ public class RewardVideoActivity extends Activity {
     }
 
     private void loadAd() {
-        mRewardedAd = new UDXRewardedAd(this, "XV0CM5");
+//        mRewardedAd = new UDXRewardedAd(this, "S780NI");
+        mRewardedAd = new UDXRewardedAd(this, "S7E0YS");
         mRewardedAd.setListener(new UDXRewardedAd.Listener() {
 
             @Override

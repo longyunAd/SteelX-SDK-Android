@@ -34,7 +34,9 @@ public class BaseApp
 //            }
 //        });
 
-        UDX.init(this, "6S0RYA", new SdkInitListener() {
+
+//        UDX.init(this, "VP0XIR", new SdkInitListener() {
+        UDX.init(this, "VJ0DPE", new SdkInitListener() {
             public void onInitSuccess() {
                 Log.i(TAG, "UDX SDK initialized");
                 Toast.makeText(BaseApp.this, "UDX SDK initialized", Toast.LENGTH_SHORT).show();
